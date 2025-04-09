@@ -5,6 +5,13 @@ module injetor(
   output reg [8:0] saida
 );
 
-// insira seu código aqui
+    always @(*) begin
+        if (erro)
+            // Inverte o bit de posição n utilizando XOR com um "máscara" que possui apenas o bit n em 1.
+            saida = entrada ^ (9'b1 << n);
+        else
+            // Sem erro, a saída é igual à entrada.
+            saida = entrada;
+    end
 
 endmodule
